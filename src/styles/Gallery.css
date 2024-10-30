@@ -1,0 +1,25 @@
+.cat-breeds {
+    text-align: center;
+    padding: 20px;
+  }
+ 
+  .breeds-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+ 
+  .breed-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    width: 250px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  }
+ 
+  .breed-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
