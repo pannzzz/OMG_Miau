@@ -1,0 +1,39 @@
+/* test.css */
+.test-container {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .questions-container, .results-container {
+    margin-top: 20px;
+  }
+  
+  label {
+    display: block;
+    margin: 10px 0;
+  }
+  
+  select, input[type="checkbox"] {
+    margin-left: 10px;
+  }
+  
+  button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  .breed-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .breed-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+  
