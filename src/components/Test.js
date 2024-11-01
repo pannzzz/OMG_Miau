@@ -1,141 +1,147 @@
-import React, { useState, useEffect } from 'react';
-import '../styles/Test.css';
+import React, { useState } from 'react';
+import '../styles/Test.css'
 
-function Test() {
-  const [answers, setAnswers] = useState({
-    
-    energy_level: '',
-    child_friendly: '',
-    hypoallergenic: false,
+const Test = () => {
+const questions = [
+    { name: 'activity', label: 'Nivel de Actividad', description: '¿Qué tan activo te gustaría que sea tu gato?' },
+    { name: 'size', label: 'Tamaño', description: '¿Prefieres un gato de tamaño pequeño, mediano o grande?' },
+    { name: 'independence', label: 'Independencia', description: '¿Qué tan independiente quieres que sea tu gato?' },
+    { name: 'coat', label: 'Nivel de Pelaje', description: '¿Prefieres un gato con mucho o poco pelaje?' },
+    { name: 'vocalization', label: 'Vocalización', description: '¿Qué tanto te importa que tu gato sea vocal?' },
+    { name: 'affection', label: 'Afiliación', description: '¿Buscas un gato muy cariñoso o más independiente?' },
+    { name: 'adaptability', label: 'Adaptabilidad', description: '¿Qué tan bien debería adaptarse a nuevos entornos?' },
+    { name: 'friendliness', label: 'Amigable con otros animales', description: '¿Cuánta compatibilidad con otros animales es importante?' },
+    { name: 'grooming', label: 'Nivel de Cuidado', description: '¿Qué tanto tiempo estás dispuesto a dedicar al aseo de tu gato?' },
+    { name: 'intelligence', label: 'Inteligencia', description: '¿Te gustaría que tu gato sea especialmente inteligente?' }
+];
 
-  });
-  const [breeds, setBreeds] = useState([]);
-  const [filteredBreeds, setFilteredBreeds] = useState(null); // Para guardar los resultados del filtro.
-  const [loading, setLoading] = useState(true);
+const [currentQuestion, setCurrentQuestion] = useState(0);
+const [recommendations, setRecommendations] = useState([]);
+const [submitted, setSubmitted] = useState(false);
+const [selectedCat, setSelectedCat] = useState(null);
+const [showModal, setShowModal] = useState(false);
 
-  const API_KEY = 'TU_CLAVE_API';
+const handleAnswer = (value) => {
+    if (currentQuestion < questions.length - 1) {
+    setCurrentQuestion(currentQuestion + 1);
+    } else {
+    handleSubmit();
+    }
+};
 
-  useEffect(() => {
+const handleSubmit = async () => {
+    setSubmitted(true);
 
-    const fetchBreeds = async () => {
-      try {
-        const response = await fetch('https://api.thecatapi.com/v1/breeds?limit=50', {
-          headers: {
-            'x-api-key': API_KEY
-          }
-        });
-        const data = await response.json();
-        setBreeds(data);
-        setLoading(false);
-      } catch (error) {
-        console.error('Error fetching breeds:', error);
-        setLoading(false);
-      }
-    };
-
-    fetchBreeds();
-  }, [API_KEY]);
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setAnswers((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
-  
-  const handleSubmit = () => {
-    const results = breeds.filter((breed) => {
-      // Filtro para "Amigable con niños".
-      let childFriendlyMatch = true;
-      if (answers.child_friendly === "1") {
-        childFriendlyMatch = breed.child_friendly >= 0 && breed.child_friendly <= 2;
-      } else if (answers.child_friendly === "3") {
-        childFriendlyMatch = breed.child_friendly >= 2 && breed.child_friendly <= 4;
-      } else if (answers.child_friendly === "5") {
-        childFriendlyMatch = breed.child_friendly >= 4 && breed.child_friendly <= 6;
-      }
-  
-      // Filtro para "Nivel de energía".
-      const energyLevelMatch = !answers.energy_level || 
-        (breed.energy_level >= answers.energy_level - 1 && breed.energy_level <= answers.energy_level + 1);
-  
-      // Filtro para "Hipoalergénico".
-      let hypoallergenicMatch = true;
-      if (answers.hypoallergenic === "true") {
-        hypoallergenicMatch = breed.hypoallergenic === 1;
-      } else if (answers.hypoallergenic === "false") {
-        hypoallergenicMatch = breed.hypoallergenic === 0;
-      }
-  
-      return energyLevelMatch && childFriendlyMatch && hypoallergenicMatch;
+    const response = await fetch('https://api.thecatapi.com/v1/breeds?limit=50', {
+    headers: {
+        'x-api-key': 'TU_CLAVE_DE_API',
+    },
     });
-  
-    setFilteredBreeds(results);
-  };
-  
+    const data = await response.json();
 
+    const breedsWithImages = await Promise.all(
+    data.map(async (breed) => {
+        const imageResponse = await fetch(`https://api.thecatapi.com/v1/images/search?breed_id=${breed.id}`, {
+            headers: {
+                'x-api-key': 'TU_CLAVE_DE_API',
+            },
+        });
+        const imageData = await imageResponse.json();
+        return { ...breed, image: imageData[0]?.url };
+    })
+    );
 
-  if (loading) return <p>Cargando opciones de gatos...</p>;
+    setRecommendations(breedsWithImages);
+};
 
-  return (
-    <div className="test-container">
-      <h2>Encuentra tu Gato Ideal</h2>
-      {filteredBreeds ? (
-        <div className="results-container">
-          <h3>Resultados de tu búsqueda</h3>
-          {filteredBreeds.length > 0 ? (
-            filteredBreeds.map((breed) => (
-              <div key={breed.id} className="breed-card">
-                <h4>{breed.name}</h4>
-                <p><strong>Descripción:</strong> {breed.description}</p>
-                <p><strong>Temperamento:</strong> {breed.temperament}</p>
-                <p><strong>Esperanza de vida:</strong> {breed.life_span} años</p>
-                {breed.image && (
-                  <img src={breed.image.url} alt={breed.name} className="breed-image" />
-                )}
-              </div>
-            ))
-          ) : (
-            <p>No se encontraron gatos que coincidan con tus preferencias.</p>
-          )}
-          <button onClick={() => setFilteredBreeds(null)}>Realizar el test de nuevo</button>
-        </div>
-      ) : (
-        <div className="questions-container">
-          <label>
-            Nivel de energía:
-            <select name="energy_level" value={answers.energy_level} onChange={handleChange}>
-              <option value="">No importa</option>
-              <option value="1">Bajo</option>
-              <option value="3">Moderado</option>
-              <option value="5">Alto</option>
-            </select>
-          </label>
-          <label>
-            Amigable con niños:
-            <select name="child_friendly" value={answers.child_friendly} onChange={handleChange}>
-              <option value="">No importa</option>
-              <option value="1">No</option>
-              <option value="3">Moderado</option>
-              <option value="5">Sí</option>
-            </select>
-          </label>
-          <label>
-            Hipoalergénico:
-            <select name="hypoallergenic" value={answers.hypoallergenic} onChange={handleChange}>
-             <option value="">No importa</option>
-             <option value="true">Sí</option>
-             <option value="false">No</option>
-             </select>
-         </label>
+const handleRetakeTest = () => {
+    setCurrentQuestion(0);
+    setRecommendations([]);
+    setSubmitted(false);
+};
 
-          <button onClick={handleSubmit}>Buscar Gato Ideal</button>
-        </div>
-      )}
+const openModal = (cat) => {
+    setSelectedCat(cat);
+    setShowModal(true);
+};
+
+const closeModal = () => {
+    setShowModal(false);
+    setSelectedCat(null);
+};
+
+const progressPercentage = ((currentQuestion + 1) / questions.length) * 100;
+
+return (
+    <div className="cat-survey-container">
+    <h2 className="cat-survey-title">Encuentra tu Gato Perfecto</h2>
+
+    <div className="progress-bar-container">
+        <div
+        className="progress-bar"
+        style={{ width: `${progressPercentage}%` }}
+        ></div>
     </div>
-  );
-}
+
+    {!submitted && (
+        <div className="question-form">
+        <h3 className="question-label">{questions[currentQuestion].label}</h3>
+        <p className="question-description">{questions[currentQuestion].description}</p>
+        <div className="answer-options">
+            <button
+            className="answer-button"
+            onClick={() => handleAnswer("alta")}
+            >
+            Alta
+            </button>
+            <button
+            className="answer-button"
+            onClick={() => handleAnswer("media")}
+            >
+            Media
+            </button>
+            <button
+            className="answer-button"
+            onClick={() => handleAnswer("baja")}
+            >
+            Baja
+            </button>
+        </div>
+        </div>
+    )}
+
+    {submitted && (
+        <div className="recommendations-container">
+        <button className="retake-button" onClick={handleRetakeTest}>
+            Realizar el test de nuevo
+        </button>
+        <h3 className="recommendation-title">Recomendaciones para ti:</h3>
+        <div className="cat-card-container">
+            {recommendations.map((cat) => (
+            <div key={cat.id} className="cat-card" onClick={() => openModal(cat)}>
+                <img src={cat.image} alt="gato recomendado" />
+                <h4 className="cat-card-name">{cat.name || 'Gato desconocido'}</h4>
+                <p className="cat-card-description"><strong>Descripción:</strong> {cat.description}</p>
+            </div>
+            ))}
+        </div>
+        </div>
+    )}
+
+    {showModal && selectedCat && (
+        <div className="modal-overlay" onClick={closeModal}>
+        <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <button className="close-button" onClick={closeModal}>X</button>
+            <img src={selectedCat.image} alt={selectedCat.name} className="modal-image" />
+            <h2>{selectedCat.name}</h2>
+            <p><strong>Descripción:</strong> {selectedCat.description}</p>
+            <p><strong>Temperamento:</strong> {selectedCat.temperament}</p>
+            <p><strong>Esperanza de vida:</strong> {selectedCat.life_span} años</p>
+        </div>
+        </div>
+    )}
+    </div>
+);
+};
 
 export default Test;
-
