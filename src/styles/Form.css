@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+
 .cat-survey-container {
   background-color: #E0E0E0;
   padding: 20px;
@@ -12,9 +14,10 @@
 
 .cat-survey-title {
   color: #8890D0;
-  font-size: 2.5em;
+  font-size: 1.5em;
   margin-bottom: 10px;
   text-align: center;
+  font-family: "Itim", cursive;
 }
 
 .progress-bar-container {
@@ -76,6 +79,12 @@
   background-color: #c58a8a;
 }
 
+.retake-button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px; /* Ajusta según necesites */
+}
+
 .recommendations-container {
   margin-top: 30px;
   width: 100%;
@@ -87,7 +96,9 @@
 .recommendation-title {
   color: #8890D0;
   font-size: 2em;
-  margin-bottom: 15px;
+  margin-top: 10px;
+  text-align: center;
+  padding-bottom: 3%;
 }
 
 .cat-card-container {

@@ -1,109 +1,202 @@
-.carousel {
-  margin: 20px 0; /* Espaciado alrededor del carrusel */
-}
-
-.carousel img {
-  border-radius: 8px; /* Bordes redondeados para las imágenes */
-}
-
-.breeds-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 15px;
-}
+@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
 .cat-breeds {
+  background-color: #FADADD; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
   padding: 20px;
-  text-align: center;
-  background: linear-gradient(to bottom, #7cbfe0 0.5%, #f3f0f0 50%); /* Fondo con dos colores */
-  position: relative; /* Para el posicionamiento del logo */
-  color: #333; /* Color de texto */
 }
 
 .logo {
-  position: absolute; /* Posiciona el logo al lado */
-  top: 20px; /* Ajusta la posición vertical */
-  left: 20px; /* Ajusta la posición horizontal */
-  width: 100px; /* Ajusta el tamaño del logo */
+  position: absolute;
+  top: 5px; /* Mantiene el logo cerca del título */
+  right: 10px;
+  width: 20vw; /* Aumenta el tamaño según el ancho de la pantalla */
+  max-width: 600px; 
+  min-width: 100px; 
+  height: auto;
 }
 
-.cat-breeds h1 {
-  font-size: 2em;
-  color: #333; /* Color del título */
-  margin-bottom: 20px;
+.breed-card h2 {
+  font-size: 1.5rem; 
+  margin: 10px; 
+  text-align: center;
+  width: 100%; /* Hace que el nombre ocupe todo el ancho de la tarjeta */
+  gap: 1rem; 
+}
+
+.title-itim {
+  font-family: 'Itim', cursive;
+  font-size: 5rem; 
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 0.5rem;
+  text-align: center; 
 }
 
 .filter-container {
   display: flex;
+  justify-content: center; 
   align-items: center;
-  margin-bottom: 20px;
-  justify-content: flex-start; /* Alinea el contenedor a la izquierda */
+  gap: 1rem; 
+  margin-bottom: 2rem;
+  width: 100%;
 }
 
 .category-filter {
-  padding: 10px;
-  font-size: 16px;
-  margin-right: 10px;
+  padding: 1rem; 
+  font-size: 1.2rem; 
+  border-radius: 5px;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  min-width: 150px;
+  max-width: 200px; 
+  flex: 1; 
+}
+
+.search-bar-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex: 1; 
+  max-width: 250px; 
+}
+
+.filter-icon {
+  position: absolute;
+  left: 10px;
+  font-size: 1.5rem; 
+  color: #333;
+  padding-right: 1px;
 }
 
 .search-bar {
-  width: 300px;
-  padding: 10px;
-  font-size: 16px;
+  padding-left: 2rem; 
+  height: 3rem; 
+  font-size: 1.2rem; 
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 5px;
+  background-color: #FFF8F0;
+  width: 100%; 
 }
 
+/* Estilo para la contenedor de las razas */
 .breeds-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Ajuste automático de columnas */
-  gap: 15px; /* Espacio entre tarjetas */
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+  width: 100%;
+  max-width: 1200px;
+  align-items: center;
 }
 
 .breed-card {
-  width: 100%;
-  max-width: 300px;
-  cursor: pointer;
-  border: 1px solid #ddd;
+  background-color: #D3D3D3; 
+  border: 1px solid #ccc;
   border-radius: 8px;
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+.breed-card h3 {
+  font-size: 1.5rem; 
+  margin: 10px; 
+  text-align: center;
+  align-items: center;
+}
+.breed-card p {
+  font-size: 1.1rem; 
+  margin: 5px; 
+}
+
+.breed-card:hover {
+  transform: scale(1.05);
 }
 
 .breed-image-container {
-  width: 100%;
-  height: 220px; /* Altura ajustada para tarjetas más grandes */
+  height: 150px;
   overflow: hidden;
-  background-color: #f8f8f8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .breed-image {
   width: 100%;
-  height: 100%;
-  object-fit: cover; /* Ajusta bien la imagen */
-  object-position: center; /* Centra la imagen */
+  height: auto;
 }
 
-.breed-info {
-  padding: 15px;
-  text-align: left;
-  background-color: #fff;
-  font-size: 14px;
-  color: #333;
+.expanded-view {
+  position: fixed;
+  top: 10%;
+  left: 25%;
+  right: 25%;
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  overflow-y: auto;
+  max-height: 80%;
+  z-index: 100;
 }
+
+.expanded-view h2 {
+  margin: 0 0 10px 0;
+  align-items: center;
+}
+
+.expanded-image {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Estilos para la vista expandida */
+.expanded-view h2,
+.expanded-view p {
+  font-family: 'Itim', cursive; 
+  color: #333; 
+}
+
 .more-info-link {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 8px 12px;
-  color: #007bff;
-  text-decoration: none;
-  font-weight: bold;
+  color: #007BFF; 
+  text-decoration: none; 
 }
 
 .more-info-link:hover {
-  color: #0056b3;
-  text-decoration: underline;
+  text-decoration: underline; 
+}
+
+/* Media Query para pantallas pequeñas */
+@media (max-width: 768px) {
+  .filter-container {
+    flex-direction: column; 
+    align-items: stretch; 
+    gap: 0.5rem; 
+  }
+  
+  .category-filter,
+  .search-bar {
+    width: 100%; 
+    height: 3rem; 
+    font-size: 1.2rem; 
+  }
+  
+  .category-filter {
+    order: 2;
+  }
+  
+  .search-bar-container {
+    order: 1; 
+  }
 }

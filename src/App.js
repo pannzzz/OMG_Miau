@@ -1,22 +1,23 @@
 import React, { useState } from 'react';
 import CatBreeds from './components/Gallery';
-import Test from './components/Test';
+import Form from './components/Form';
 import './App.css';
 
 function App() {
-  const [showTest, setShowTest] = useState(false);
+  const [showForm, setShowForm] = useState(false);
+  const [breeds, setBreeds] = useState([]);
 
   const handleToggle = () => {
-    setShowTest(!showTest);
+    setShowForm(!showForm);
   };
 
   return (
     <div className="App">
       <button onClick={handleToggle} className="toggle-button">
-        {showTest ? 'Volver a Galería de Gatos' : 'Encuentra tu Gato Ideal'}
+        {showForm ? 'Volver a Galería de Gatos' : 'Encuentra tu Gato Ideal'}
       </button>
       
-      {showTest ? <Test onResults={(results) => console.log(results)} /> : <CatBreeds />}
+      {showForm ? <Form breeds={breeds} setBreeds={setBreeds} onResults={(results) => console.log(results)} /> : <CatBreeds breeds={breeds} setBreeds={setBreeds}/>}
     </div>
   );
 }
