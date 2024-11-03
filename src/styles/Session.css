@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+
+.session-section {
+  background-color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+.content {
+  display: flex;
+  align-items: center; /* Alinear verticalmente el contenido */
+  justify-content: center; /* Centrar el contenido horizontalmente */
+}
+
+.main-image {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 10px;
+  margin-right: 200px; /* Aumentar el margen a la derecha de la imagen */
+  margin-left: -100px; /* Mover la imagen más a la izquierda */
+}
+
+.text-section {
+  max-width: 500px; /* Establece un ancho máximo para el texto */
+  text-align: left; /* Alinea el texto a la izquierda */
+  margin-left: 60px; /* Mueve el texto un poco a la derecha */
+}
+
+.session-section h1 {
+  color: #000000;
+  font-size: 2.5rem; /* Tamaño de fuente más grande */
+  font-family: 'Itim', cursive;
+  margin-bottom: 40px;
+}
+
+.session-section h3 {
+  color: #000000;
+  font-size: 2.5rem; /* Tamaño de fuente más grande */
+  font-family: 'Itim', cursive;
+  margin-bottom: 30px;
+}
+
+.session-section h2 {
+  color: #222121;
+  font-size: 1em;
+  margin-bottom: 10px;
+}
+
+.highlights {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.highlight {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100px; /* Ajusta el tamaño de la tarjeta */
+  padding: 20px;
+  background-color: #e6f1ff; /* Fondo de color suave */
+  border-radius: 20px; /* Bordes redondeados */
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.highlight:hover {
+  background-color: #ff8a8a; /* Cambia el fondo al hacer hover */
+  transform: scale(1.05); /* Aumenta ligeramente el tamaño al hacer hover */
+}
+
+.highlight img {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 10px;
+}
+
+.highlight p {
+  font-size: 0.9em;
+  color: #333;
+  font-weight: bold;
+  text-align: center;
+  margin: 0;
+}
+
+.header-icon {
+  width: 140px; /* Tamaño del ícono */
+  height: 100px; /* Tamaño del ícono */
+  margin: -130px auto 0; /* Mueve el ícono más arriba y lo centra */
+  display: block; /* Asegúrate de que el ícono se comporta como un bloque para centrarse */
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+  .content {
+    flex-direction: column; /* Cambia a columna en pantallas pequeñas */
+    align-items: center; /* Centra los elementos */
+    text-align: center; /* Centra el texto */
+  }
+
+  .main-image {
+    margin-right: 0; /* Elimina margen a la derecha en pantallas pequeñas */
+    margin-left: 0; /* Elimina margen a la izquierda en pantallas pequeñas */
+    max-width: 80%; /* Cambia el tamaño máximo de la imagen */
+  }
+
+  .text-section {
+    margin-left: 0; /* Elimina margen izquierdo */
+    max-width: 100%; /* Permite que el texto ocupe todo el ancho disponible */
+  }
+
+  .session-section h1,
+  .session-section h3 {
+    font-size: 2rem; /* Reduce el tamaño de fuente en pantallas pequeñas */
+  }
+
+  .highlights {
+    gap: 20px; /* Reduce el espacio entre las tarjetas */
+  }
+
+  .highlight {
+    width: 80px; /* Reduce el ancho de las tarjetas en pantallas pequeñas */
+    padding: 15px; /* Ajusta el padding */
+  }
+
+  .highlight img {
+    width: 30px; /* Reduce el tamaño de las imágenes en las tarjetas */
+    height: 30px;
+  }
+
+  .header-icon {
+    width: 100px; /* Ajusta el tamaño del ícono */
+    height: auto; /* Mantener proporciones */
+  }
+}
+
+@media (max-width: 480px) {
+  .session-section h1,
+  .session-section h3 {
+    font-size: 1.5rem; /* Reduce aún más el tamaño de fuente */
+  }
+
+  .highlight {
+    width: 60px; /* Ajustar tamaño aún más */
+    padding: 10px; /* Ajustar padding */
+  }
+
+  .highlight img {
+    width: 25px; /* Reducir tamaño de las imágenes de las tarjetas */
+    height: 25px;
+  }
+}
+

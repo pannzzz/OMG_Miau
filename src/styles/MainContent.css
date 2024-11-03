@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+
+.main-conten {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 20px;
+    background-color: #E5EEFF;
+    flex-wrap: wrap;
+    height: 80vh; /* Ajustar la altura según lo necesites */
+}
+
+.text-and-buttons {
+    flex-basis: 40%; /* Espacio dedicado al texto y botones */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Alinear elementos a la izquierda */
+    gap: 30px; /* Reducir el espacio entre el texto y el botón para pantallas pequeñas */
+}
+
+.main-conten h1 {
+    font-family: 'Itim', cursive;
+    font-size: 2.5rem;
+    margin: 0; /* Eliminar margen inferior para acercarlo al botón */
+    color: #0b0b0b;
+    text-align: left;
+}
+
+.cat-image {
+    flex-basis: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 30px;
+}
+
+.cat-image img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    max-height: 600px;
+    border-radius: 15px;
+    margin: 5px 0;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.cat-image img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.action-button {
+    display: flex;
+    justify-content: center;
+    margin-top: 0; /* Eliminar margen superior para reducir espacio con el texto */
+}
+
+.action-button button {
+    background-color: #b3c7ff;
+    padding: 20px 40px;
+    border: none;
+    border-radius: 30px;
+    color: #090909;
+    cursor: pointer;
+    font-size: 1.4rem;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.action-button button:hover {
+    background-color: #ff8a8a;
+    color: #fff;
+    transform: scale(1.05);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .main-conten {
+        flex-direction: column; /* Cambiar a columna en pantallas pequeñas */
+        height: auto; /* Permitir que el contenedor se ajuste a la altura de su contenido */
+    }
+
+    .text-and-buttons {
+        flex-basis: 100%; /* Tomar el 100% del ancho en pantallas pequeñas */
+        align-items: center; /* Centrar elementos */
+    }
+
+    .cat-image {
+        flex-basis: 100%; /* Tomar el 100% del ancho en pantallas pequeñas */
+        align-items: center; /* Centrar imagen */
+        margin-bottom: 20px; /* Ajustar espacio inferior */
+    }
+
+    .action-button {
+        width: 100%; /* Tomar el 100% del ancho en pantallas pequeñas */
+    }
+
+    .action-button button {
+        width: 100%; /* Hacer que el botón ocupe el 100% del ancho */
+        padding: 15px; /* Reducir el padding */
+        font-size: 1.2rem; /* Ajustar el tamaño de fuente */
+    }
+
+    .main-conten h1 {
+        font-size: 2rem; /* Ajustar tamaño del título */
+        text-align: center; /* Centrar título en pantallas pequeñas */
+    }
+}
+
+@media (max-width: 480px) {
+    .main-conten h1 {
+        font-size: 1.5rem; /* Ajustar aún más el tamaño del título */
+    }
+
+    .text-and-buttons {
+        gap: 20px; /* Reducir espacio en pantallas más pequeñas */
+    }
+
+    .action-button button {
+        padding: 10px; /* Reducir padding para botones en pantallas más pequeñas */
+        font-size: 1rem; /* Ajustar tamaño de fuente para botones */
+    }
+}
