@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from '../assets/Logo1.png';
-import '../styles/NotFound.css'; // Asegúrate de importar el CSS
+import '../styles/NotFound.css'; 
 
 function NotFound() {
     return (

@@ -9,7 +9,7 @@ import NotFound from "./components/NotFound";
 const App = () => {
   return (
     <Router>
-      <Navbar /> {/* Barra de navegación aquí */}
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/inicio" element={<Home />} />

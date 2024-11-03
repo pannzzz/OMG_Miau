@@ -1,8 +1,8 @@
 import React from 'react';
 import '../styles/Session.css';
-import img from '../assets/Gato3.jpg'; // imagen principal
-import icon from '../assets/Logo1.png'; // asegúrate de tener el ícono en tu carpeta de assets
-import icon1 from '../assets/icon2.png'; // íconos de cuidado
+import img from '../assets/Gato3.jpg'; 
+import icon from '../assets/Logo1.png'; 
+import icon1 from '../assets/icon2.png'; 
 import icon2 from '../assets/icon3.1.png';
 import icon3 from '../assets/icon4.png';
 import icon4 from '../assets/icon5.1.png';
@@ -15,7 +15,7 @@ const Session = () => {
       <div className="content">
         <img src={img} alt="Kitten" className="main-image" />
         <div className="text-section">
-          <img src={icon} alt="Icono" className="header-icon" /> {/* Ícono sobre el título */}
+          <img src={icon} alt="Icono" className="header-icon" /> 
           <h1>Gatitos felices</h1>
           <h2>
             La llegada de un gato a casa conlleva un gran cambio. Convivir con una mascota es una experiencia maravillosa que puede enriquecer enormemente tu vida, ofreciéndote momentos únicos de cariño y diversión, aunque también es una tarea que implica responsabilidad y tiempo. Y éste es el primer aspecto que debes valorar adecuadamente si estás pensando en adquirir un gatito.
