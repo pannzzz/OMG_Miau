@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom"; 
 import "../styles/Navbar.css";
-import logo from "../assets/Logo1.png";
+import log from "../assets/LogoTrans.png";
 
 const Navbar = () => {
   return (
@@ -13,7 +13,7 @@ const Navbar = () => {
           <Link to="/conocenos" className="nav-link">Conócenos</Link>
         </nav>
         <div className="logo-container">
-          <img src={logo} alt="Cats Logo" className="logo" />
+          <img src={log} alt="Cats Logo" className="logo" />
         </div>
         <div className="contact-info">
           <div className="buy-now-container">
