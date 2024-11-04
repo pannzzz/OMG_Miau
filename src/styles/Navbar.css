@@ -1,0 +1,117 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  background-color: #E5EEFF;
+}
+
+/* Estilos de navegación */
+.nav-menu {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 20px;
+}
+
+.nav-link.active,
+.nav-link:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+.logo-container {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.logo {
+  width: 160px; /* Aumentado para hacerlo más grande */
+  height: auto; /* Mantener proporciones */
+  object-fit: contain; /* Ajustar imagen correctamente */
+}
+
+.contact-info {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.phone {
+  font-size: 1rem;
+  color: #333;
+}
+
+.button-now {
+  background-color: #ff8a8a;
+  padding: 20px 40px;
+  border: none;
+  border-radius: 30px;
+  color: #fff;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.2s; /* Transición suave */
+}
+
+.button-now:hover {
+  background-color: #b3c7ff; /* Cambia el color de fondo al pasar el mouse */
+  color: #030303; /* Cambia el color del texto */
+  transform: scale(1.05); /* Levemente agranda el botón */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Agrega una sombra */
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column; /* Cambia la dirección a columna en pantallas pequeñas */
+    padding: 15px 20px; /* Reducir el padding */
+  }
+
+  .nav-menu {
+    flex-direction: column; /* Cambia el menú a columna */
+    align-items: center; /* Centrar los elementos en el menú */
+    gap: 10px; /* Espacio reducido entre los enlaces */
+  }
+
+  .logo {
+    width: 120px; /* Reducir el tamaño de la logo en pantallas pequeñas */
+  }
+
+  .contact-info {
+    flex-direction: column; /* Coloca la información de contacto en columna */
+    align-items: center; /* Centrar elementos de contacto */
+    gap: 10px; /* Espacio reducido entre elementos de contacto */
+  }
+
+  .button-now {
+    width: 100%; /* Hacer que el botón ocupe el 100% del ancho */
+    padding: 15px; /* Reducir padding para un botón más pequeño */
+    font-size: 1rem; /* Ajustar tamaño de fuente */
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 10px 15px; /* Menos padding en pantallas muy pequeñas */
+  }
+
+  .nav-link {
+    font-size: 0.9rem; /* Reducir el tamaño de la fuente de los enlaces */
+    padding: 8px 16px; /* Reducir el padding */
+  }
+
+  .logo {
+    width: 100px; /* Reducir aún más el tamaño de la logo */
+  }
+
+  .phone {
+    font-size: 0.9rem; /* Reducir el tamaño de la fuente del teléfono */
+  }
+}
