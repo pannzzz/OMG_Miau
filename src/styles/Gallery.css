@@ -8,16 +8,6 @@
   padding: 20px;
 }
 
-.logo {
-  position: absolute;
-  top: 5px; /* Mantiene el logo cerca del título */
-  right: 10px;
-  width: 20vw; /* Aumenta el tamaño según el ancho de la pantalla */
-  max-width: 600px; 
-  min-width: 100px; 
-  height: auto;
-}
-
 .breed-card h2 {
   font-size: 1.5rem; 
   margin: 10px; 

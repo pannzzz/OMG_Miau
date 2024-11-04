@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/Gallery.css';
-import logo from '../assets/logo.png';
 
-function Gallery({ breeds, setBreeds }) {
+function Gallery() { // Eliminamos la dependencia de props
     
+    const [breeds, setBreeds] = useState([]); // Creamos el estado interno
     const [loading, setLoading] = useState(true);
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedCategory, setSelectedCategory] = useState('');
@@ -37,13 +37,13 @@ function Gallery({ breeds, setBreeds }) {
                 setLoading(false);
             } catch (error) {
                 console.error('Error fetching breeds:', error);
+                setBreeds([]); // En caso de error, asegurarse de que breeds sea un array vacío
                 setLoading(false);
             }
         };
     
         fetchBreeds();
-    }, [API_KEY, setBreeds]); 
-    
+    }, [API_KEY]); 
 
 
     const handleSearch = (event) => {
@@ -62,11 +62,12 @@ function Gallery({ breeds, setBreeds }) {
         setSelectedBreed(null);
     };
 
-    const filteredBreeds = breeds.filter(breed => {
+    // Verificar que breeds es un array antes de aplicar filter
+    const filteredBreeds = Array.isArray(breeds) ? breeds.filter(breed => {
         const matchesSearch = breed.name.toLowerCase().includes(searchTerm);
         const matchesCategory = selectedCategory ? breed.id === selectedCategory : true;
         return matchesSearch && matchesCategory;
-    });
+    }) : [];
 
     if (loading) {
         return <div className="cat-breeds">Cargando...</div>;
@@ -78,7 +79,6 @@ function Gallery({ breeds, setBreeds }) {
 
     return (
         <div className="cat-breeds">
-            <img src={logo} alt="Logo" className="logo" />
             <h1 className="title-itim">Galería de Gatos</h1>
             <div className="filter-container">
                 <select value={selectedCategory} onChange={handleCategoryChange} className="category-filter">
@@ -131,6 +131,5 @@ function Gallery({ breeds, setBreeds }) {
         </div>
     );
 }
-
 
 export default Gallery;

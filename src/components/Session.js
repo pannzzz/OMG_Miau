@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/Session.css';
 import img from '../assets/Gato3.jpg'; 
-import icon from '../assets/Logo1.png'; 
+import icon from '../assets/LogoTrans.png'; 
 import icon1 from '../assets/icon2.png'; 
 import icon2 from '../assets/icon3.1.png';
 import icon3 from '../assets/icon4.png';

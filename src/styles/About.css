@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+
+.itim-font {
+    font-family: 'Itim', cursive;
+}
+
+.mainTitle {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #444;
+    margin-bottom: 20px;
+}
+
+.grid {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    padding: 20px;
+    background-color: #f4f7fb;
+}
+
+.container {
+    background-color: #E0E9FA;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.imageContainer {
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+.image {
+    width: 100%;
+    height: auto;
+    transition: opacity 0.3s ease;
+    border-radius: 5px;
+}
+
+.hoverText {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    border-radius: 5px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.text {
+    margin-top: 10px;
+    font-size: 1.2rem;
+    color: #555;
+}
+
+.infoSection {
+    padding: 40px 20px;
+    background-color: #fff;
+}
+
+.infoBlock {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 40px;
+    border: 1px solid #e0e9fa;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #fafcff;
+}
+
+.infoTitle {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.textContainer {
+    flex: 1;
+    padding: 20px;
+}
+
+.imageContainerInfo {
+    flex: 1;
+    text-align: center;
+}
+
+.infoImage {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+    .infoBlock {
+      flex-direction: column;
+    }
+
+    .textContainer,
+    .imageContainerInfo {
+      padding: 10px;
+    }
+}
