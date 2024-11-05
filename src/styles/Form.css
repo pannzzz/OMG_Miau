@@ -1,5 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
 
+.imagenForm {
+  width: 103%;                   
+  display: flex;                 
+  justify-content: flex-start;   
+  border-left: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.imageForm {
+  width: auto;                   
+  height: 400px;                 
+  object-fit: contain;           /* Evita recortes de la imagen */
+  border-radius: 0;             
+  box-shadow: none;              
+  margin: 0;                    
+  padding: 0;                    
+}
+
 .cat-survey-container {
   background-color: #E0E0E0;
   padding: 20px;
@@ -82,7 +101,7 @@
 .retake-button-container {
   display: flex;
   justify-content: center;
-  margin-top: 20px; /* Ajusta según necesites */
+  margin-top: 20px; 
 }
 
 .recommendations-container {
@@ -213,4 +232,39 @@
 
 .close-button:hover {
   background: #c58a8a;
+}
+/* Responsive Styles */
+
+/* Para pantallas medianas (tablets y pantallas entre 768px y 1024px) */
+@media (max-width: 1024px) {
+  .imageForm {
+    height: 300px;
+  }
+  .cat-card {
+    width: 200px;
+  }
+}
+
+/* Para pantallas pequeñas (móviles y pantallas menores a 768px) */
+@media (max-width: 768px) {
+  .imageForm {
+    height: 200px;
+  }
+  .cat-survey-title {
+    font-size: 1.2em;
+  }
+  .progress-bar-container {
+    width: 90%;
+  }
+  .question-form, .cat-card-container, .retake-button-container {
+    width: 100%;
+    padding: 0;
+  }
+  .recommendation-title {
+    font-size: 1.5em;
+  }
+  .cat-card {
+    width: 100%;
+    margin: 0;
+  }
 }

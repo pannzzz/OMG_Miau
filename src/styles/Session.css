@@ -2,9 +2,9 @@
 
 .session-section {
   background-color: #fff;
-  padding: 20px;
   text-align: center;
 }
+
 
 .content {
   display: flex;
@@ -90,6 +90,28 @@
   display: block; /* Asegúrate de que el ícono se comporta como un bloque para centrarse */
 }
 
+.cat-survey {
+  display: flex;                 
+  justify-content: center;       
+  align-items: flex-end;         
+  margin: 0;                    
+  padding: 0;                   
+  height: 400px;                
+  overflow: hidden;             /* Oculta cualquier contenido adicional */
+}
+
+.imageSession {
+  width: auto;                   
+  height: 400px;                 
+  object-fit: contain;           
+  border-radius: 0;             
+  box-shadow: none;              
+  margin: 0;                    
+  padding: 0;                    
+}
+
+
+
 /* Estilos responsivos */
 @media (max-width: 768px) {
   .content {
@@ -149,5 +171,6 @@
     width: 25px; /* Reducir tamaño de las imágenes de las tarjetas */
     height: 25px;
   }
+
 }
 

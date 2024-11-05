@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../styles/Form.css";
+import cat from "../assets/cat_hand_trans-removebg-preview.png";
 
 const Form = ({ breeds, setBreeds }) => {
   const questions = [
@@ -26,7 +27,8 @@ const Form = ({ breeds, setBreeds }) => {
     {
       name: "grooming",
       label: "Nivel de Cuidado",
-      description: "¿Qué tanto tiempo estás dispuesto a dedicar al aseo de tu gato?",
+      description:
+        "¿Qué tanto tiempo estás dispuesto a dedicar al aseo de tu gato?",
     },
     {
       name: "intelligence",
@@ -43,6 +45,12 @@ const Form = ({ breeds, setBreeds }) => {
       label: "Amigable con los niños",
       description: "¿Qué tan amigo de los niños debería ser tu gato?",
     },
+    {
+      name: "empty",
+      label: "Felicitaciones",
+      description: "¿Qué tanto te gustaron las preguntas?",
+    },
+
   ];
 
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -70,7 +78,7 @@ const Form = ({ breeds, setBreeds }) => {
 
     const countScores = (breed) => {
       let matchScore = 0;
-      // Asegúrate de que las propiedades existan en el objeto `breed`
+      // Calcula la diferencia entre las puntuaciones de cada pregunta
       matchScore += Math.abs((scores.energy_level || 0) - (breed.energy_level || 0));
       matchScore += Math.abs((scores.affection_level || 0) - (breed.affection_level || 0));
       matchScore += Math.abs((scores.adaptability || 0) - (breed.adaptability || 0));
@@ -79,13 +87,14 @@ const Form = ({ breeds, setBreeds }) => {
       matchScore += Math.abs((scores.intelligence || 0) - (breed.intelligence || 0));
       matchScore += Math.abs((scores.vocalisation || 0) - (breed.vocalisation || 0));
       matchScore += Math.abs((scores.child_friendly || 0) - (breed.child_friendly || 0));
+      console.log("Match score for", breed.name, "is", matchScore, scores); // Debugging line
       return matchScore;
     };
 
     const filteredRecommendations = breeds
-      .filter(breed => breed) // Asegúrate de que la raza no sea undefined
-      .sort((a, b) => countScores(a) - countScores(b))
-      .slice(0, 5); // Los 5 mejores gatos
+      .filter((breed) => breed) // Filtra las razas que no tienen datos
+      .sort((a, b) => countScores(a) - countScores(b))// Ordena las razas por puntuación
+      .slice(0, 5); // Los 5 mejores gatos menor puntaje es mejor
 
     console.log("Filtered recommendations:", filteredRecommendations); // Debugging line
     setRecommendations(filteredRecommendations);
@@ -113,6 +122,9 @@ const Form = ({ breeds, setBreeds }) => {
   return (
     <div className="cat-survey-container">
       <h2 className="title-itim">Encuentra tu Gato Perfecto</h2>
+      <div className="imagenForm">
+        <img src={cat} alt="cat" className="imageForm" />
+      </div>
       <div className="progress-bar-container">
         <div
           className="progress-bar"
@@ -148,7 +160,9 @@ const Form = ({ breeds, setBreeds }) => {
             </button>
           </div>
           <div className="recommendations-container">
-            <h3 className="recommendation-title">Tus mejores compañeros podrían ser:</h3>
+            <h3 className="recommendation-title">
+              Tus mejores compañeros podrían ser:
+            </h3>
             <div className="cat-card-container">
               {recommendations.map((cat) => (
                 <div

@@ -6,8 +6,8 @@ import drako from "../assets/drako.jpg";
 import pardo from "../assets/pardo.jpg";
 import luna from "../assets/luna.jpg";
 import nuestrosImg from "../assets/image.png";
-import porImg from "../assets/ot.jpg";
-import misionImg from "../assets/gatito.jpg";
+import kittens from "../assets/ot.jpg";
+import kittenAlone from "../assets/gatito.jpg";
 import cat from "../assets/cat.png";
 import "../styles/About.css";
 
@@ -32,7 +32,7 @@ const AboutUs = () => {
       imageUrl: drako,
       text: "Drako",
       hoverText:
-        "Me llamo Drako, soy un gato muy cariñoso y juguetón, mi dueña es Dalia, adoro explorar cajas, las más grandes son mis favoritas, también me gusta perseguir pelotas de aluminio y que me peinen.",
+        "Me llamo Drako, mi dueña es Dalia, soy un gato muy cariñoso y juguetón, adoro explorar cajas, las más grandes son mis favoritas, también me gusta que me peinen y me jueguen con mi caña para gatos de pajarito.",
     },
     {
       id: 4,
@@ -96,6 +96,7 @@ const AboutUs = () => {
           </div>
         ))}
       </div>
+      {console.log("Rendered items:", items)}
       <div className="info-section">
         <div className="info-block">
           <div className="image-container-info">
@@ -118,13 +119,13 @@ const AboutUs = () => {
             <p>Nosotras entendemos que cada hogar y estilo de vida es único, y que encontrar el gato perfecto es una combinación de compatibilidad en energía, características, y personalidad. Crear un espacio donde esta búsqueda sea intuitiva y accesible es algo que nos inspira profundamente.</p>
           </div>
           <div className="image-container-info">
-            <img src={porImg} alt="Imagen de por qué lo hacemos" className="info-image" />
+            <img src={kittens} alt="Imagen de por qué lo hacemos" className="info-image" />
           </div>
         </div>
 
         <div className="info-block">
           <div className="image-container-info">
-            <img src={misionImg} alt="Imagen de misión" className="info-image" />
+            <img src={kittenAlone} alt="Imagen de misión" className="info-image" />
           </div>
           <div className="text-container">
             <h2 className="info-title">Misión</h2>
