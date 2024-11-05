@@ -114,7 +114,9 @@
 .breed-image {
   width: 100%;
   height: auto;
+  object-fit: cover;
 }
+
 
 .expanded-view {
   position: fixed;

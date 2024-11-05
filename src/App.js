@@ -6,6 +6,7 @@ import AboutUs from "./components/AboutUs";
 import Navbar from "./components/Navbar";
 import NotFound from "./components/NotFound";
 import Gallery from "./components/Gallery";
+import FormLogic from "./components/FormLogic";
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
         <Route path="/inicio" element={<Home />} />
         <Route path="/catalogo" element={<Gallery/>} />
         <Route path="/conocenos" element={<AboutUs />} />
+        <Route path="/test" element={<FormLogic />} />
         <Route path="*" element={<NotFound/>} />
 
       </Routes>
