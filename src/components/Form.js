@@ -100,6 +100,31 @@ const Form = ({ breeds, setBreeds }) => {
     setRecommendations(filteredRecommendations);
   };
 
+<<<<<<< Updated upstream
+=======
+  const handlePrint = () => {
+    const printContent = printRef.current.innerHTML;
+    const printWindow = window.open('', '_blank');
+    printWindow.document.write(`
+      <html>
+        <head>
+          <title>Resultados de tus mejores compañeros</title>
+          <style>
+            body { font-family: Arial, sans-serif; padding: 20px; }
+            .cat-card { margin-bottom: 20px; }
+            .cat-card img { width: 100px; height: 100px; }
+            .cat-card-name { font-weight: bold; margin: 10px 0; }
+          </style>
+        </head>
+        <body onload="window.print();">
+          ${printContent}
+        </body>
+      </html>
+    `);
+    printWindow.document.close();
+  };
+
+>>>>>>> Stashed changes
   const handleRetakeTest = () => {
     setCurrentQuestion(0);
     setScores({});
