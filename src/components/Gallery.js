@@ -99,7 +99,7 @@ function CatBreeds() {
           <span className="filter-icon">🐾</span>
           <input
             type="text"
-            placeholder="  Buscar raza..."
+            placeholder="Buscar raza..."
             value={searchTerm}
             onChange={handleSearch}
             className="search-bar"

@@ -160,9 +160,7 @@ const Form = ({ breeds, setBreeds }) => {
             </button>
           </div>
           <div className="recommendations-container">
-            <h3 className="recommendation-title">
-              Tus mejores compañeros podrían ser:
-            </h3>
+            <h3 className="recommendation-title">Tus mejores compañeros podrían ser:</h3>
             <div className="cat-card-container">
               {recommendations.map((cat) => (
                 <div
