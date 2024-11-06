@@ -1,29 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
 
+/* Contenedor de la imagen de la pata del gato */
 .imagenForm {
-<<<<<<< Updated upstream
-  width: 103%;                   
-  display: flex;                 
-  justify-content: flex-start;   
-  border-left: 0;
-  margin: 0;
-  padding: 0;
-=======
-  margin-left: -1500px;
+  margin-left: -1300px;
   left: 0;
   z-index: 1;
   margin-top: -80px;
->>>>>>> Stashed changes
 }
 
+/* Estilo de la imagen de la pata */
 .imageForm {
-  width: auto;                   
-  height: 400px;                 
-  object-fit: contain;           /* Evita recortes de la imagen */
-  border-radius: 0;             
-  box-shadow: none;              
-  margin: 0;                    
-  padding: 0;                    
+  width: auto;
+  height: 400px; /* Ajusta la altura de la imagen según tu preferencia */
 }
 
 .cat-survey-container {
@@ -33,26 +21,28 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   min-height: 100vh;
   box-sizing: border-box;
 }
 
 .cat-survey-title {
-  color: #8890D0;
-  font-size: 1.5em;
-  margin-bottom: 10px;
+  color: #333;
+  font-size: 2em;
+  margin-top: 0; /* Elimina margen superior adicional */
   text-align: center;
   font-family: "Itim", cursive;
 }
 
+/* Contenedor de la barra de progreso */
 .progress-bar-container {
   width: 80%;
   max-width: 500px;
   background-color: #ddd;
   border-radius: 8px;
-  margin-bottom: 20px;
+  margin-top: -200px; /* Ajusta la distancia del título */
   border: 1px solid black;
+  position: relative;
+  z-index: 2; /* Asegura que esté por encima de la imagen */
 }
 
 .progress-bar {
@@ -61,6 +51,7 @@
   border-radius: 8px;
 }
 
+/* Otros estilos del formulario */
 .question-form {
   background-color: #ffffff;
   border-radius: 12px;
@@ -69,6 +60,8 @@
   width: 80%;
   max-width: 500px;
   text-align: center;
+  margin-top: 20px; /* Ajusta espacio entre barra de progreso y formulario */
+  z-index: 2;
 }
 
 .question-label {
@@ -108,7 +101,23 @@
 .retake-button-container {
   display: flex;
   justify-content: center;
-  margin-top: 20px; 
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.retake-button {
+  padding: 12px 20px;
+  font-size: 1.2em;
+  background-color: #E57373; 
+  color: #ffffff;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.retake-button:hover {
+  background-color: #df9696;
 }
 
 .recommendations-container {
@@ -166,28 +175,10 @@
   font-weight: bold;
 }
 
-.cat-card-description,
-.cat-card-temperament,
-.cat-card-life-span {
+.cat-card-description {
   color: #555;
   font-size: 0.9em;
   margin: 5px 0;
-}
-
-.retake-button {
-  margin-top: 20px;
-  padding: 12px 20px;
-  font-size: 1.2em;
-  background-color: #E57373; 
-  color: #ffffff;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.retake-button:hover {
-  background-color: #df9696;
 }
 
 .modal-overlay {
@@ -240,12 +231,13 @@
 .close-button:hover {
   background: #c58a8a;
 }
+
 /* Responsive Styles */
 
 /* Para pantallas medianas (tablets y pantallas entre 768px y 1024px) */
 @media (max-width: 1024px) {
   .imageForm {
-    height: 300px;
+    height: 250px;
   }
   .cat-card {
     width: 200px;
